@@ -11,6 +11,8 @@ import UIKit
 class CuentaTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lbTitle: UILabel!
+    
+    @IBOutlet weak var lbTotal: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

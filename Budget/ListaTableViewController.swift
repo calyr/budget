@@ -13,12 +13,14 @@ import CoreData
 
 class ListaTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var menuData: [String] = []
+    var menuDataTotal: [String] = []
 
     @IBOutlet weak var tableViewCuentas: UITableView!
     var contexto : NSManagedObjectContext? = nil
 
     func cargarDatos(){
         menuData = []
+        menuDataTotal = []
         let cuentaEntity = NSEntityDescription.entityForName("Cuenta", inManagedObjectContext: self.contexto!)
         
         let peticion = cuentaEntity?.managedObjectModel.fetchRequestTemplateForName("getCuentas")
@@ -28,16 +30,33 @@ class ListaTableViewController: UIViewController, UITableViewDelegate, UITableVi
             print("La cantidad es \(cuentasEntity?.count) ")
             if cuentasEntity?.count == 0 {
                 menuData = []
-                
+                menuDataTotal = []
             }
             for cuenta in cuentasEntity!{
                 let nombre  = cuenta.valueForKey("nombre") as! String
+                let total = cuenta.valueForKey("total") as! Double
                 
+                
+                
+                let subcuentasList = cuenta.valueForKey("tiene") as! Set<NSObject>
+                
+               // print(cuenta)
+                print(nombre)
+                print("Imprimiendo los valores de la cuenta [ \(subcuentasList.count) ]")
+                
+                for subcuenta in subcuentasList {
+                    
+                    print(subcuenta.valueForKey("nombre"))
+                    print(subcuenta.valueForKey("saldo"))
+                    //var saldoCuenta = subcuenta.valueForKey("total")
+                    
+                }
                 
                 menuData.append(nombre)
+                menuDataTotal.append(String(total) )
+                print("**********************")
+
                 
-                print(cuenta)
-                print(nombre)
             }
             
         }catch{
@@ -88,7 +107,8 @@ class ListaTableViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCellWithIdentifier("CellIdentifier", forIndexPath: indexPath) as! CuentaTableViewCell
         print( indexPath.row )
         
-                cell.lbTitle.text? = menuData[indexPath.row]
+        cell.lbTitle.text? = menuData[indexPath.row]
+        cell.lbTotal.text? = menuDataTotal[indexPath.row]
         
         //cell.imgMenuTitle.image = UIImage(named: menuDataIcon[indexPath.row])
         

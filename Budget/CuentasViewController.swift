@@ -64,6 +64,24 @@ class CuentasViewController: UIViewController {
         return entidades
         
     }
+
+    
+    func getSaldo(value:String) -> NSNumber{
+        
+        let someString = value
+        if let number = Int(someString) {
+            let myNumber = NSNumber(integer:number)
+            
+            return myNumber
+        } else {
+            
+            return NSNumber()
+        }
+       
+    }
+   
+
+    
     
     @IBAction func guardarCuenta(sender: UIBarButtonItem) {
         
@@ -91,16 +109,64 @@ class CuentasViewController: UIViewController {
                 
                 if( cuentaEntidad2?.count > 0){
                 
-                    let alerta = UIAlertController(title: "Alerta", message: "Este tipo ya fue craedo",preferredStyle: UIAlertControllerStyle.Alert)
+                   /* let alerta = UIAlertController(title: "Alerta", message: "Este tipo ya fue craedo",preferredStyle: UIAlertControllerStyle.Alert)
                     
                     alerta.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
 
                    self.presentViewController(alerta, animated: true, completion: nil)
+                    */
+                    let cuentaActual = cuentaEntidad2![0] as! NSManagedObject
+                    
+                    let nuevaSubcuentaEntidad = NSEntityDescription.insertNewObjectForEntityForName("Subcuenta", inManagedObjectContext: self.contexto!)
+                    
+                    
+                    nuevaSubcuentaEntidad.setValue(getSaldo(txtSaldo.text!), forKey: "saldo")
+
+                    
+                    let dateString = txtFecha.text // change to your date format
+                    
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd"
+                    
+                    let date = dateFormatter.dateFromString(dateString!)
+                    //print(date)
+                    
+                    nuevaSubcuentaEntidad.setValue(txtNombre.text, forKey: "nombre")
+                    nuevaSubcuentaEntidad.setValue(txtMoneda.text, forKey: "moneda")
+                    nuevaSubcuentaEntidad.setValue(date, forKey: "fecha")
+                    nuevaSubcuentaEntidad.setValue(swIncluir.on, forKey: "incluirmenu")
+                    
+                    let saldoTotalCuenta = cuentaActual.valueForKey("total") as! Double
+                    let saldoTotalSubcuenta = Double(txtSaldo.text!)
+                    
+                    print("MOSTRANDO LOS VALORES DE SALDO")
+                    print(saldoTotalCuenta)
+                    print(saldoTotalSubcuenta)
+                   
+                    
+                    let tot = saldoTotalSubcuenta! + saldoTotalCuenta
+                     print(tot)
+                     print("MOSTRANDO LOS VALOES DE SLADO")
+                    
+                    
+                    cuentaActual.setValue(tot, forKey: "total")
+
+                    
+                    nuevaSubcuentaEntidad.setValue(cuentaActual, forKey: "pertenece")
+                    
+                    do{
+                        try self.contexto?.save()
+                    }catch{
+                    
+                    }
+                    
+                    
                 }else{
                 
                     //creamos la cuenta
                     let nuevaCuentaEntitidad = NSEntityDescription.insertNewObjectForEntityForName("Cuenta", inManagedObjectContext: self.contexto!)
                     nuevaCuentaEntitidad.setValue(txtTipo.text, forKey: "nombre")
+                    nuevaCuentaEntitidad.setValue(getSaldo(txtSaldo.text!), forKey: "total")
                     nuevaCuentaEntitidad.setValue(crearSubcuenta(), forKey: "tiene")
                 
                     
@@ -118,13 +184,7 @@ class CuentasViewController: UIViewController {
             
         }
         
-        print(txtNombre.text)
-        print(txtTipo.text)
-        print(txtMoneda.text)
-        print(txtSaldo.text)
-        print(txtFecha.text)
-        print(swIncluir.on)
-    
+           
     
     }
 
