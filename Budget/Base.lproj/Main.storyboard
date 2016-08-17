@@ -289,7 +289,7 @@
         <!--Cuentas-->
         <scene sceneID="c2E-lI-qct">
             <objects>
-                <viewController id="WTd-cM-YIG" sceneMemberID="viewController">
+                <viewController id="WTd-cM-YIG" customClass="CuentasViewController" customModule="Budget" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sC8-Bk-kEI"/>
                         <viewControllerLayoutGuide type="bottom" id="Ni5-xQ-e3N"/>

@@ -18,6 +18,7 @@
 		33A665991D63E661005C8FA9 /* gastos.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A665941D63E661005C8FA9 /* gastos.png */; };
 		33A6659A1D63E661005C8FA9 /* ingresos.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A665951D63E661005C8FA9 /* ingresos.png */; };
 		33A6659B1D63E661005C8FA9 /* presupuestos.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A665961D63E661005C8FA9 /* presupuestos.png */; };
+		33A6659D1D640CC6005C8FA9 /* CuentasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6659C1D640CC6005C8FA9 /* CuentasViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		33A665941D63E661005C8FA9 /* gastos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gastos.png; sourceTree = "<group>"; };
 		33A665951D63E661005C8FA9 /* ingresos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ingresos.png; sourceTree = "<group>"; };
 		33A665961D63E661005C8FA9 /* presupuestos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = presupuestos.png; sourceTree = "<group>"; };
+		33A6659C1D640CC6005C8FA9 /* CuentasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuentasViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				33A6657D1D63E39A005C8FA9 /* AppDelegate.swift */,
 				33A6657F1D63E39A005C8FA9 /* ViewController.swift */,
 				33A665811D63E39A005C8FA9 /* Main.storyboard */,
+				33A6659C1D640CC6005C8FA9 /* CuentasViewController.swift */,
 				33A665871D63E39A005C8FA9 /* Assets.xcassets */,
 				33A665921D63E661005C8FA9 /* cuentas.png */,
 				33A665931D63E661005C8FA9 /* facturas.png */,
@@ -158,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33A6659D1D640CC6005C8FA9 /* CuentasViewController.swift in Sources */,
 				33A665801D63E39A005C8FA9 /* ViewController.swift in Sources */,
 				33A6657E1D63E39A005C8FA9 /* AppDelegate.swift in Sources */,
 				33A665861D63E39A005C8FA9 /* Budget.xcdatamodeld in Sources */,
