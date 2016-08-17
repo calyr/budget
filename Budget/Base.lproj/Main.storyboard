@@ -184,16 +184,45 @@
         <!--Ago 2016-->
         <scene sceneID="l5h-Cn-ywg">
             <objects>
-                <viewController id="dLD-WJ-FOW" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="e2J-JA-TGY"/>
-                        <viewControllerLayoutGuide type="bottom" id="ATS-Ri-WDy"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="B2W-ao-cay">
+                <viewController id="dLD-WJ-FOW" customClass="GastosTableViewController" customModule="Budget" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kll-so-CFO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="celdagasto" selectionStyle="default" indentationWidth="10" reuseIdentifier="celdagasto" id="4PU-1C-OgA" customClass="GastosTableViewCell" customModule="Budget" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4PU-1C-OgA" id="any-Es-l1S">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSU-5X-CqA">
+                                            <rect key="frame" x="20" y="11" width="197" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7I-26-I6l">
+                                            <rect key="frame" x="279" y="11" width="127" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lbNombre" destination="JSU-5X-CqA" id="hac-IG-3pl"/>
+                                    <outlet property="lbTotal" destination="R7I-26-I6l" id="YnK-fI-Cvv"/>
+                                    <segue destination="ed6-gT-GTA" kind="show" identifier="detallegasto" id="lHV-dW-98S"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dLD-WJ-FOW" id="h0H-dL-Z1c"/>
+                            <outlet property="delegate" destination="dLD-WJ-FOW" id="U4l-Cf-C0Y"/>
+                        </connections>
+                    </tableView>
                     <navigationItem key="navigationItem" title="Ago 2016" id="UhP-3T-4l2">
                         <barButtonItem key="backBarButtonItem" title="Atrás" id="8Zh-Si-1gA"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="7oM-sE-0ck">
@@ -203,15 +232,74 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="tableViewGastos" destination="Kll-so-CFO" id="Csd-Cb-YYM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TDf-g2-7Lr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1616" y="-204"/>
         </scene>
+        <!--Detalle Gasto-->
+        <scene sceneID="wrs-j2-yWl">
+            <objects>
+                <viewController id="ed6-gT-GTA" customClass="GastoDetalleTableViewController" customModule="Budget" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KDn-dZ-I1r"/>
+                        <viewControllerLayoutGuide type="bottom" id="hag-xs-sVc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xMd-Iv-8ZX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4XH-TD-WLH">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celdadetallegasto" id="Znv-gh-eOE" customClass="GastoDetalleTableViewCell" customModule="Budget" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Znv-gh-eOE" id="6ev-re-XQp">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUA-df-bSh">
+                                                    <rect key="frame" x="22" y="11" width="196" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5l-ie-FMF">
+                                                    <rect key="frame" x="285" y="8" width="115" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="txtNombre" destination="qUA-df-bSh" id="lCm-BH-FIP"/>
+                                            <outlet property="txtTotal" destination="e5l-ie-FMF" id="lJc-4Q-cYx"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detalle Gasto" id="UKL-Zc-siX">
+                        <barButtonItem key="backBarButtonItem" title="Atrás" id="0ZN-zZ-jSn"/>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2tE-Ay-kly" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2121" y="53"/>
+        </scene>
         <!--Añadir Gasto-->
         <scene sceneID="Jbd-Rq-Dxv">
             <objects>
-                <viewController id="pFj-8C-LfT" sceneMemberID="viewController">
+                <viewController id="pFj-8C-LfT" customClass="GastoViewController" customModule="Budget" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xjD-1Y-TJO"/>
                         <viewControllerLayoutGuide type="bottom" id="8vz-XP-QFT"/>
@@ -276,17 +364,34 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wJM-Ce-rjJ">
+                                <rect key="frame" x="20" y="318" width="205" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Añadir Gasto" id="EQU-Na-Ays">
-                        <barButtonItem key="rightBarButtonItem" title="Guardar" id="xTZ-XZ-oBS"/>
+                        <barButtonItem key="rightBarButtonItem" title="Guardar" id="xTZ-XZ-oBS">
+                            <connections>
+                                <action selector="guardarGasto:" destination="pFj-8C-LfT" id="tHt-L5-iK7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="txtCantidad" destination="XOa-Ub-wjp" id="x7j-ep-J11"/>
+                        <outlet property="txtCategoria" destination="3KU-3o-5fR" id="m7g-4s-fxR"/>
+                        <outlet property="txtDescripcion" destination="75F-Ik-tlY" id="73X-N5-jfT"/>
+                        <outlet property="txtFecha" destination="akQ-E7-a5S" id="G25-Qu-DZO"/>
+                        <outlet property="txtPagar" destination="wJM-Ce-rjJ" id="V6v-6K-fhq"/>
+                        <outlet property="txtSubcategoria" destination="0a9-Ue-96Y" id="clg-Xv-Qya"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yso-qe-IjP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2155" y="-204"/>
+            <point key="canvasLocation" x="2121" y="-733"/>
         </scene>
         <!--Cuentas-->
         <scene sceneID="c2E-lI-qct">
@@ -405,7 +510,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2FM-jI-l3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2155" y="581"/>
+            <point key="canvasLocation" x="2121" y="846"/>
         </scene>
         <!--Añadir Cuenta-->
         <scene sceneID="92p-HQ-srD">

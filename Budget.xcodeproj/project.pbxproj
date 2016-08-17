@@ -23,6 +23,11 @@
 		CF31C0FE1D649F13000A4118 /* CuentaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF31C0FD1D649F13000A4118 /* CuentaTableViewCell.swift */; };
 		CF31C1001D65027A000A4118 /* CuentaDetalleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF31C0FF1D65027A000A4118 /* CuentaDetalleTableViewController.swift */; };
 		CF31C1021D65029E000A4118 /* CuentadetalleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF31C1011D65029E000A4118 /* CuentadetalleTableViewCell.swift */; };
+		CF31C1041D651A10000A4118 /* GastosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF31C1031D651A10000A4118 /* GastosTableViewController.swift */; };
+		CF31C1061D651A67000A4118 /* GastosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF31C1051D651A67000A4118 /* GastosTableViewCell.swift */; };
+		CF31C1081D651E26000A4118 /* GastoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF31C1071D651E26000A4118 /* GastoViewController.swift */; };
+		CF31C10A1D65254E000A4118 /* GastoDetalleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF31C1091D65254E000A4118 /* GastoDetalleTableViewController.swift */; };
+		CF31C10C1D65256B000A4118 /* GastoDetalleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF31C10B1D65256B000A4118 /* GastoDetalleTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +49,11 @@
 		CF31C0FD1D649F13000A4118 /* CuentaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuentaTableViewCell.swift; sourceTree = "<group>"; };
 		CF31C0FF1D65027A000A4118 /* CuentaDetalleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuentaDetalleTableViewController.swift; sourceTree = "<group>"; };
 		CF31C1011D65029E000A4118 /* CuentadetalleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuentadetalleTableViewCell.swift; sourceTree = "<group>"; };
+		CF31C1031D651A10000A4118 /* GastosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GastosTableViewController.swift; sourceTree = "<group>"; };
+		CF31C1051D651A67000A4118 /* GastosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GastosTableViewCell.swift; sourceTree = "<group>"; };
+		CF31C1071D651E26000A4118 /* GastoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GastoViewController.swift; sourceTree = "<group>"; };
+		CF31C1091D65254E000A4118 /* GastoDetalleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GastoDetalleTableViewController.swift; sourceTree = "<group>"; };
+		CF31C10B1D65256B000A4118 /* GastoDetalleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GastoDetalleTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +89,11 @@
 				33A6657D1D63E39A005C8FA9 /* AppDelegate.swift */,
 				33A6657F1D63E39A005C8FA9 /* ViewController.swift */,
 				33A665811D63E39A005C8FA9 /* Main.storyboard */,
+				CF31C10B1D65256B000A4118 /* GastoDetalleTableViewCell.swift */,
+				CF31C1091D65254E000A4118 /* GastoDetalleTableViewController.swift */,
+				CF31C1071D651E26000A4118 /* GastoViewController.swift */,
+				CF31C1051D651A67000A4118 /* GastosTableViewCell.swift */,
+				CF31C1031D651A10000A4118 /* GastosTableViewController.swift */,
 				CF31C1011D65029E000A4118 /* CuentadetalleTableViewCell.swift */,
 				CF31C0FF1D65027A000A4118 /* CuentaDetalleTableViewController.swift */,
 				CF31C0FD1D649F13000A4118 /* CuentaTableViewCell.swift */,
@@ -173,10 +188,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF31C10A1D65254E000A4118 /* GastoDetalleTableViewController.swift in Sources */,
+				CF31C1081D651E26000A4118 /* GastoViewController.swift in Sources */,
+				CF31C1061D651A67000A4118 /* GastosTableViewCell.swift in Sources */,
 				33A6659D1D640CC6005C8FA9 /* CuentasViewController.swift in Sources */,
 				33A665801D63E39A005C8FA9 /* ViewController.swift in Sources */,
+				CF31C1041D651A10000A4118 /* GastosTableViewController.swift in Sources */,
 				CF31C1021D65029E000A4118 /* CuentadetalleTableViewCell.swift in Sources */,
 				33A6657E1D63E39A005C8FA9 /* AppDelegate.swift in Sources */,
+				CF31C10C1D65256B000A4118 /* GastoDetalleTableViewCell.swift in Sources */,
 				CF31C0FE1D649F13000A4118 /* CuentaTableViewCell.swift in Sources */,
 				CF31C1001D65027A000A4118 /* CuentaDetalleTableViewController.swift in Sources */,
 				33A665861D63E39A005C8FA9 /* Budget.xcdatamodeld in Sources */,

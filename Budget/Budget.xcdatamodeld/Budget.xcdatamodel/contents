@@ -5,6 +5,11 @@
         <attribute name="total" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <relationship name="tiene" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Subcuenta" inverseName="pertenece" inverseEntity="Subcuenta" syncable="YES"/>
     </entity>
+    <entity name="Gasto" syncable="YES">
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="total" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="tiene" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Subgasto" inverseName="pertenece" inverseEntity="Subgasto" syncable="YES"/>
+    </entity>
     <entity name="Subcuenta" syncable="YES">
         <attribute name="fecha" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="incluirmenu" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -13,10 +18,22 @@
         <attribute name="saldo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <relationship name="pertenece" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cuenta" inverseName="tiene" inverseEntity="Cuenta" syncable="YES"/>
     </entity>
+    <entity name="Subgasto" syncable="YES">
+        <attribute name="cantidad" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="descripcion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fecha" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subCuenta" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="pertenece" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gasto" inverseName="tiene" inverseEntity="Gasto" syncable="YES"/>
+    </entity>
     <fetchRequest name="getCuenta" entity="Cuenta" predicateString="nombre == $nombre"/>
     <fetchRequest name="getCuentas" entity="Cuenta"/>
+    <fetchRequest name="getGasto" entity="Gasto" predicateString="nombre == $nombre"/>
+    <fetchRequest name="getGastos" entity="Gasto"/>
     <elements>
         <element name="Cuenta" positionX="-63" positionY="-18" width="128" height="90"/>
         <element name="Subcuenta" positionX="-54" positionY="0" width="128" height="135"/>
+        <element name="Gasto" positionX="-63" positionY="45" width="128" height="90"/>
+        <element name="Subgasto" positionX="-54" positionY="54" width="128" height="135"/>
     </elements>
 </model>
