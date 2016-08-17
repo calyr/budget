@@ -92,15 +92,16 @@ class GastosTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         print("INGRESO AL SEGUE")
-        
-        if (segue.identifier == "detallegasto") {
+        print(segue.identifier)
+        print("**************")
+        if (segue.identifier == "seguegasto") {
         
             let destino = segue.destinationViewController as! GastoDetalleTableViewController
                 
             if let selectedSub = sender as? GastosTableViewCell{
                 let index = tableViewGastos.indexPathForCell(selectedSub)!
                 
-                destino.nombreCuenta = menuData[index.row]
+                destino.nombreGasto = menuData[index.row]
             }else{
                 print("No hay el segue")
             }

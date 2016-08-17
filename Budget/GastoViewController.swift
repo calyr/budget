@@ -77,7 +77,6 @@ class GastoViewController: UIViewController {
                     let date = dateFormatter.dateFromString(dateString!)
                     
                     nuevaSubgastoEntidad.setValue(txtSubcategoria.text, forKey: "nombre")
-                    nuevaSubgastoEntidad.setValue(txtCantidad.text, forKey: "cantidad")
                     nuevaSubgastoEntidad.setValue(date, forKey: "fecha")
                     nuevaSubgastoEntidad.setValue(txtDescripcion.text, forKey: "descripcion")
                     

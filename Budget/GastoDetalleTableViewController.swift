@@ -14,9 +14,10 @@ class GastoDetalleTableViewController: UITableViewController {
     var contexto : NSManagedObjectContext? = nil
     var dataName : [String] = []
     var dataValue : [String] = []
-    var nombreCuenta : String = ""
+    var nombreGasto : String = ""
     
     override func viewDidLoad() {
+        print("El nombre del gasto es \(nombreGasto)")
         super.viewDidLoad()
         self.contexto = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
@@ -25,6 +26,44 @@ class GastoDetalleTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func cargarDatos(){
+        dataName  = []
+        dataValue = []
+        
+        let cuentaEntity = NSEntityDescription.entityForName("Gasto", inManagedObjectContext: self.contexto!)
+        
+        let peticion = cuentaEntity?.managedObjectModel.fetchRequestFromTemplateWithName("getGasto", substitutionVariables: [ "nombre": self.nombreGasto])
+        
+        do{
+            let cuentasEntity = try self.contexto?.executeFetchRequest(peticion!)
+            print("La cantidad es \(cuentasEntity?.count) ")
+            if cuentasEntity?.count == 0 {
+                
+                
+            }else{
+                
+                let cuentaActual = cuentasEntity![0] as! NSManagedObject
+                
+                self.subcuentasList = cuentaActual.valueForKey("tiene") as! Set<NSObject>
+                
+                for subcu in subcuentasList {
+                    let nombreSub = subcu.valueForKey("nombre") as! String
+                    let valueSub = subcu.valueForKey("cantidad") as! Double
+                    
+                    dataName.append(nombreSub)
+                    dataValue.append(String(valueSub))
+                    
+                }
+                
+            }
+            
+            
+        }catch{
+        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,12 +80,12 @@ class GastoDetalleTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return subcuentasList.count
+        return dataName.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("celdagasto", forIndexPath: indexPath) as! GastoDetalleTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("celdadetallegasto", forIndexPath: indexPath) as! GastoDetalleTableViewCell
         
         cell.txtNombre.text = dataName[indexPath.row]
         cell.txtTotal.text = dataValue[indexPath.row]
