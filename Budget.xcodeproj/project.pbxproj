@@ -13,6 +13,11 @@
 		33A665861D63E39A005C8FA9 /* Budget.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33A665841D63E39A005C8FA9 /* Budget.xcdatamodeld */; };
 		33A665881D63E39A005C8FA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A665871D63E39A005C8FA9 /* Assets.xcassets */; };
 		33A6658B1D63E39A005C8FA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A665891D63E39A005C8FA9 /* LaunchScreen.storyboard */; };
+		33A665971D63E661005C8FA9 /* cuentas.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A665921D63E661005C8FA9 /* cuentas.png */; };
+		33A665981D63E661005C8FA9 /* facturas.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A665931D63E661005C8FA9 /* facturas.png */; };
+		33A665991D63E661005C8FA9 /* gastos.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A665941D63E661005C8FA9 /* gastos.png */; };
+		33A6659A1D63E661005C8FA9 /* ingresos.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A665951D63E661005C8FA9 /* ingresos.png */; };
+		33A6659B1D63E661005C8FA9 /* presupuestos.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A665961D63E661005C8FA9 /* presupuestos.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		33A665871D63E39A005C8FA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33A6658A1D63E39A005C8FA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33A6658C1D63E39A005C8FA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33A665921D63E661005C8FA9 /* cuentas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cuentas.png; sourceTree = "<group>"; };
+		33A665931D63E661005C8FA9 /* facturas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facturas.png; sourceTree = "<group>"; };
+		33A665941D63E661005C8FA9 /* gastos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gastos.png; sourceTree = "<group>"; };
+		33A665951D63E661005C8FA9 /* ingresos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ingresos.png; sourceTree = "<group>"; };
+		33A665961D63E661005C8FA9 /* presupuestos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = presupuestos.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +70,11 @@
 				33A6657F1D63E39A005C8FA9 /* ViewController.swift */,
 				33A665811D63E39A005C8FA9 /* Main.storyboard */,
 				33A665871D63E39A005C8FA9 /* Assets.xcassets */,
+				33A665921D63E661005C8FA9 /* cuentas.png */,
+				33A665931D63E661005C8FA9 /* facturas.png */,
+				33A665941D63E661005C8FA9 /* gastos.png */,
+				33A665951D63E661005C8FA9 /* ingresos.png */,
+				33A665961D63E661005C8FA9 /* presupuestos.png */,
 				33A665891D63E39A005C8FA9 /* LaunchScreen.storyboard */,
 				33A6658C1D63E39A005C8FA9 /* Info.plist */,
 				33A665841D63E39A005C8FA9 /* Budget.xcdatamodeld */,
@@ -125,7 +140,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33A6659A1D63E661005C8FA9 /* ingresos.png in Resources */,
+				33A665991D63E661005C8FA9 /* gastos.png in Resources */,
 				33A6658B1D63E39A005C8FA9 /* LaunchScreen.storyboard in Resources */,
+				33A665971D63E661005C8FA9 /* cuentas.png in Resources */,
+				33A665981D63E661005C8FA9 /* facturas.png in Resources */,
+				33A6659B1D63E661005C8FA9 /* presupuestos.png in Resources */,
 				33A665881D63E39A005C8FA9 /* Assets.xcassets in Resources */,
 				33A665831D63E39A005C8FA9 /* Main.storyboard in Resources */,
 			);
