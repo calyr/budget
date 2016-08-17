@@ -88,13 +88,8 @@ class CuentasViewController: UIViewController {
         //Cargado del tipo de cuenta
         
         if (txtTipo.text == "" ){
-            // create the alert
             let alert = UIAlertController(title: "Crear Cuenta", message: "El campo Tipo no puede ser vacio", preferredStyle: UIAlertControllerStyle.Alert)
-            
-            // add an action (button)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            
-            // show the alert
             self.presentViewController(alert, animated: true, completion: nil)
         }else{
             
@@ -109,12 +104,7 @@ class CuentasViewController: UIViewController {
                 
                 if( cuentaEntidad2?.count > 0){
                 
-                   /* let alerta = UIAlertController(title: "Alerta", message: "Este tipo ya fue craedo",preferredStyle: UIAlertControllerStyle.Alert)
-                    
-                    alerta.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-
-                   self.presentViewController(alerta, animated: true, completion: nil)
-                    */
+                 
                     let cuentaActual = cuentaEntidad2![0] as! NSManagedObject
                     
                     let nuevaSubcuentaEntidad = NSEntityDescription.insertNewObjectForEntityForName("Subcuenta", inManagedObjectContext: self.contexto!)
@@ -129,7 +119,6 @@ class CuentasViewController: UIViewController {
                     dateFormatter.dateFormat = "yyyy-MM-dd"
                     
                     let date = dateFormatter.dateFromString(dateString!)
-                    //print(date)
                     
                     nuevaSubcuentaEntidad.setValue(txtNombre.text, forKey: "nombre")
                     nuevaSubcuentaEntidad.setValue(txtMoneda.text, forKey: "moneda")
@@ -139,18 +128,10 @@ class CuentasViewController: UIViewController {
                     let saldoTotalCuenta = cuentaActual.valueForKey("total") as! Double
                     let saldoTotalSubcuenta = Double(txtSaldo.text!)
                     
-                    print("MOSTRANDO LOS VALORES DE SALDO")
-                    print(saldoTotalCuenta)
-                    print(saldoTotalSubcuenta)
-                   
                     
                     let tot = saldoTotalSubcuenta! + saldoTotalCuenta
-                     print(tot)
-                     print("MOSTRANDO LOS VALOES DE SLADO")
-                    
                     
                     cuentaActual.setValue(tot, forKey: "total")
-
                     
                     nuevaSubcuentaEntidad.setValue(cuentaActual, forKey: "pertenece")
                     

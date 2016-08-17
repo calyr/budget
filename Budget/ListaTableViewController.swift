@@ -27,7 +27,6 @@ class ListaTableViewController: UIViewController, UITableViewDelegate, UITableVi
         
         do{
             let cuentasEntity = try self.contexto?.executeFetchRequest(peticion!)
-            print("La cantidad es \(cuentasEntity?.count) ")
             if cuentasEntity?.count == 0 {
                 menuData = []
                 menuDataTotal = []
@@ -35,26 +34,8 @@ class ListaTableViewController: UIViewController, UITableViewDelegate, UITableVi
             for cuenta in cuentasEntity!{
                 let nombre  = cuenta.valueForKey("nombre") as! String
                 let total = cuenta.valueForKey("total") as! Double
-                
-                
-                
-                let subcuentasList = cuenta.valueForKey("tiene") as! Set<NSObject>
-                
-               // print(cuenta)
-                print(nombre)
-                print("Imprimiendo los valores de la cuenta [ \(subcuentasList.count) ]")
-                
-                for subcuenta in subcuentasList {
-                    
-                    print(subcuenta.valueForKey("nombre"))
-                    print(subcuenta.valueForKey("saldo"))
-                    //var saldoCuenta = subcuenta.valueForKey("total")
-                    
-                }
-                
                 menuData.append(nombre)
                 menuDataTotal.append(String(total) )
-                print("**********************")
 
                 
             }
@@ -101,20 +82,13 @@ class ListaTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //let cell = tableView.dequeueReusableCellWithIdentifier("Celda", forIndexPath: indexPath)
-        //let cell = tableView.dequeueReusableCellWithIdentifier("Celdacuenta", forIndexPath: indexPath) as! CuentaTableViewCell
         
         let cell = tableView.dequeueReusableCellWithIdentifier("CellIdentifier", forIndexPath: indexPath) as! CuentaTableViewCell
         print( indexPath.row )
         
         cell.lbTitle.text? = menuData[indexPath.row]
         cell.lbTotal.text? = menuDataTotal[indexPath.row]
-        
-        //cell.imgMenuTitle.image = UIImage(named: menuDataIcon[indexPath.row])
-        
-        
-        // Configure the cell...
-        
+               
         return cell
     }
     
@@ -153,13 +127,28 @@ class ListaTableViewController: UIViewController, UITableViewDelegate, UITableVi
      }
      */
     
-    /*
+    
      // MARK: - Navigation
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
+        
+        
+        if (segue.identifier == "cuentaDetalle") {
+            let destino = segue.destinationViewController as! CuentaDetalleTableViewController
+            
+            if let selectedSub = sender as? CuentaTableViewCell{
+                let index = tableViewCuentas.indexPathForCell(selectedSub)!
+                
+                destino.nombreCuenta = menuData[index.row]
+            }else{
+                print("No hay el segue")
+            }
+            
+        }
+        
+        // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
      }
-     */
+    
     
 }

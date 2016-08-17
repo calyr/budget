@@ -21,6 +21,8 @@
 		33A6659D1D640CC6005C8FA9 /* CuentasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6659C1D640CC6005C8FA9 /* CuentasViewController.swift */; };
 		CF31C0FC1D649E83000A4118 /* ListaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF31C0FB1D649E82000A4118 /* ListaTableViewController.swift */; };
 		CF31C0FE1D649F13000A4118 /* CuentaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF31C0FD1D649F13000A4118 /* CuentaTableViewCell.swift */; };
+		CF31C1001D65027A000A4118 /* CuentaDetalleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF31C0FF1D65027A000A4118 /* CuentaDetalleTableViewController.swift */; };
+		CF31C1021D65029E000A4118 /* CuentadetalleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF31C1011D65029E000A4118 /* CuentadetalleTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		33A6659C1D640CC6005C8FA9 /* CuentasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuentasViewController.swift; sourceTree = "<group>"; };
 		CF31C0FB1D649E82000A4118 /* ListaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaTableViewController.swift; sourceTree = "<group>"; };
 		CF31C0FD1D649F13000A4118 /* CuentaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuentaTableViewCell.swift; sourceTree = "<group>"; };
+		CF31C0FF1D65027A000A4118 /* CuentaDetalleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuentaDetalleTableViewController.swift; sourceTree = "<group>"; };
+		CF31C1011D65029E000A4118 /* CuentadetalleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuentadetalleTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 				33A6657D1D63E39A005C8FA9 /* AppDelegate.swift */,
 				33A6657F1D63E39A005C8FA9 /* ViewController.swift */,
 				33A665811D63E39A005C8FA9 /* Main.storyboard */,
+				CF31C1011D65029E000A4118 /* CuentadetalleTableViewCell.swift */,
+				CF31C0FF1D65027A000A4118 /* CuentaDetalleTableViewController.swift */,
 				CF31C0FD1D649F13000A4118 /* CuentaTableViewCell.swift */,
 				CF31C0FB1D649E82000A4118 /* ListaTableViewController.swift */,
 				33A6659C1D640CC6005C8FA9 /* CuentasViewController.swift */,
@@ -169,8 +175,10 @@
 			files = (
 				33A6659D1D640CC6005C8FA9 /* CuentasViewController.swift in Sources */,
 				33A665801D63E39A005C8FA9 /* ViewController.swift in Sources */,
+				CF31C1021D65029E000A4118 /* CuentadetalleTableViewCell.swift in Sources */,
 				33A6657E1D63E39A005C8FA9 /* AppDelegate.swift in Sources */,
 				CF31C0FE1D649F13000A4118 /* CuentaTableViewCell.swift in Sources */,
+				CF31C1001D65027A000A4118 /* CuentaDetalleTableViewController.swift in Sources */,
 				33A665861D63E39A005C8FA9 /* Budget.xcdatamodeld in Sources */,
 				CF31C0FC1D649E83000A4118 /* ListaTableViewController.swift in Sources */,
 			);

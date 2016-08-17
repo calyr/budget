@@ -318,16 +318,21 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lb2-EY-otP">
-                                                    <rect key="frame" x="261" y="11" width="145" height="21"/>
+                                                    <rect key="frame" x="231" y="14" width="152" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krY-ub-A1C">
+                                                    <rect key="frame" x="385" y="8" width="30" height="30"/>
+                                                    <state key="normal" title="&gt;"/>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="lbTitle" destination="1pN-Dx-nO6" id="Qng-PW-cKm"/>
                                             <outlet property="lbTotal" destination="lb2-EY-otP" id="cuE-Hy-pgq"/>
+                                            <segue destination="Snh-xn-PgZ" kind="show" identifier="cuentaDetalle" id="XoP-fY-XJE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -355,6 +360,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzK-QA-67F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1616" y="720"/>
+        </scene>
+        <!--Detalle Cuenta-->
+        <scene sceneID="TnX-2G-Z0x">
+            <objects>
+                <viewController id="Snh-xn-PgZ" customClass="CuentaDetalleTableViewController" customModule="Budget" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Mey-v6-ecP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cuentaDetalle" selectionStyle="default" indentationWidth="10" reuseIdentifier="cuentaDetalle" id="VDL-yz-c9N" customClass="CuentadetalleTableViewCell" customModule="Budget" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VDL-yz-c9N" id="mgb-i8-q3V">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Re-yR-mLG">
+                                            <rect key="frame" x="8" y="8" width="269" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Kc-47-c61">
+                                            <rect key="frame" x="285" y="8" width="121" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lbSaldo" destination="0Kc-47-c61" id="kR2-jc-ILk"/>
+                                    <outlet property="lbSubcuenta" destination="0Re-yR-mLG" id="mRj-oW-gDB"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Detalle Cuenta" id="Snb-WR-HvE">
+                        <barButtonItem key="backBarButtonItem" title="Atrás" id="I3s-YL-rVz"/>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2FM-jI-l3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2155" y="581"/>
         </scene>
         <!--Añadir Cuenta-->
         <scene sceneID="92p-HQ-srD">
@@ -458,7 +509,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JA7-Ms-BF5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2147" y="720"/>
+            <point key="canvasLocation" x="2155" y="1365"/>
         </scene>
         <!--Selecione la fecha-->
         <scene sceneID="VC3-my-RGY">
