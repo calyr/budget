@@ -350,7 +350,7 @@
         <!--Añadir Cuenta-->
         <scene sceneID="92p-HQ-srD">
             <objects>
-                <viewController id="Phc-GE-r5e" sceneMemberID="viewController">
+                <viewController id="Phc-GE-r5e" customClass="CuentasViewController" customModule="Budget" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hsA-8B-Ffz"/>
                         <viewControllerLayoutGuide type="bottom" id="0Nd-jn-YOr"/>
@@ -431,9 +431,21 @@
                     </view>
                     <navigationItem key="navigationItem" title="Añadir Cuenta" id="wRW-2f-GEv">
                         <barButtonItem key="backBarButtonItem" title="Atrás" id="CrU-oH-IZX"/>
-                        <barButtonItem key="rightBarButtonItem" title="Guardar" id="bVQ-wc-ELM"/>
+                        <barButtonItem key="rightBarButtonItem" title="Guardar" id="bVQ-wc-ELM">
+                            <connections>
+                                <action selector="guardarCuenta:" destination="Phc-GE-r5e" id="khU-8X-nox"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="swIncluir" destination="shL-7C-JGl" id="O9t-BE-gqB"/>
+                        <outlet property="txtFecha" destination="VIx-XG-vTK" id="1LH-jn-OSF"/>
+                        <outlet property="txtMoneda" destination="M0M-dh-kg9" id="YE1-bY-KEF"/>
+                        <outlet property="txtNombre" destination="EgS-0k-ZjQ" id="f71-AE-zFl"/>
+                        <outlet property="txtSaldo" destination="YCe-7k-urw" id="8oJ-zX-Kn5"/>
+                        <outlet property="txtTipo" destination="Ycu-zr-Yc5" id="lgp-Fx-2Tg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JA7-Ms-BF5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

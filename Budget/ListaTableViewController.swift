@@ -7,17 +7,48 @@
 //
 
 import UIKit
+import CoreData
 
 
-let menuData: [String] = ["Gastos","Facturas","Ingresos","Presupuesto","Cuentas"]
 
 class ListaTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+    var menuData: [String] = []
+
     @IBOutlet weak var tableViewCuentas: UITableView!
+    var contexto : NSManagedObjectContext? = nil
+
+    func cargarDatos(){
+        menuData = []
+        let cuentaEntity = NSEntityDescription.entityForName("Cuenta", inManagedObjectContext: self.contexto!)
+        
+        let peticion = cuentaEntity?.managedObjectModel.fetchRequestTemplateForName("getCuentas")
+        
+        do{
+            let cuentasEntity = try self.contexto?.executeFetchRequest(peticion!)
+            print("La cantidad es \(cuentasEntity?.count) ")
+            if cuentasEntity?.count == 0 {
+                menuData = []
+                
+            }
+            for cuenta in cuentasEntity!{
+                let nombre  = cuenta.valueForKey("nombre") as! String
+                
+                
+                menuData.append(nombre)
+                
+                print(cuenta)
+                print(nombre)
+            }
+            
+        }catch{
+        }
+
     
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.contexto = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        cargarDatos()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -36,6 +67,12 @@ class ListaTableViewController: UIViewController, UITableViewDelegate, UITableVi
      func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
+    }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        cargarDatos()
+        self.tableViewCuentas.reloadData()
     }
     
      func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

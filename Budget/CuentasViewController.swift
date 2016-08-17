@@ -8,9 +8,16 @@
 
 import UIKit
 import CoreData
+import Foundation
 
 class CuentasViewController: UIViewController {
 
+    @IBOutlet weak var txtNombre: UITextField!
+    @IBOutlet weak var txtTipo: UITextField!
+    @IBOutlet weak var txtMoneda: UITextField!
+    @IBOutlet weak var txtSaldo: UITextField!
+    @IBOutlet weak var txtFecha: UITextField!
+    @IBOutlet weak var swIncluir: UISwitch!
     var contexto : NSManagedObjectContext? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,26 +26,107 @@ class CuentasViewController: UIViewController {
     }
 
     override func didReceiveMemoryWarning() {
-        let cuentaEntity = NSEntityDescription.entityForName("Cuenta", inManagedObjectContext: self.contexto!)
-        
-        let peticion = cuentaEntity?.managedObjectModel.fetchRequestTemplateForName("getCuentas")
-        
-        do{
-            let cuentasEntity = try self.contexto?.executeFetchRequest(peticion!)
-            
-            for cuenta in cuentasEntity!{
-                let nombre  = cuenta.valueForKey("mombre") as! String
-                
-            }
-            
-        }catch{
-        }
-        
         
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func crearSubcuenta() -> Set<NSObject>{
+    
+        var entidades = Set<NSObject>()
+        
+        let nuevaSubcuentaEntidad = NSEntityDescription.insertNewObjectForEntityForName("Subcuenta", inManagedObjectContext: self.contexto!)
+        
+        let someString = txtSaldo.text
+        if let number = Int(someString!) {
+            let myNumber = NSNumber(integer:number)
+            nuevaSubcuentaEntidad.setValue(myNumber, forKey: "saldo")
+
+            print(myNumber)
+        } else {
+            print("'\(someString)' did not convert to an Int")
+        }
+        
+        let dateString = txtFecha.text // change to your date format
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        let date = dateFormatter.dateFromString(dateString!)
+        //print(date)
+        
+        nuevaSubcuentaEntidad.setValue(txtNombre.text, forKey: "nombre")
+        nuevaSubcuentaEntidad.setValue(txtMoneda.text, forKey: "moneda")
+        nuevaSubcuentaEntidad.setValue(date, forKey: "fecha")
+        nuevaSubcuentaEntidad.setValue(swIncluir.on, forKey: "incluirmenu")
+        entidades.insert(nuevaSubcuentaEntidad)
+        
+        return entidades
+        
+    }
+    
+    @IBAction func guardarCuenta(sender: UIBarButtonItem) {
+        
+        //Cargado del tipo de cuenta
+        
+        if (txtTipo.text == "" ){
+            // create the alert
+            let alert = UIAlertController(title: "Crear Cuenta", message: "El campo Tipo no puede ser vacio", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            
+            // show the alert
+            self.presentViewController(alert, animated: true, completion: nil)
+        }else{
+            
+            //Verificar si existe la cuenta
+            
+            let cuentaEntitad = NSEntityDescription.entityForName("Cuenta", inManagedObjectContext: self.contexto!)
+            
+            let peticionCuenta = cuentaEntitad?.managedObjectModel.fetchRequestFromTemplateWithName("getCuenta", substitutionVariables: ["nombre": txtTipo.text!])
+            
+            do{
+                let cuentaEntidad2 = try self.contexto?.executeFetchRequest(peticionCuenta!)
+                
+                if( cuentaEntidad2?.count > 0){
+                
+                    let alerta = UIAlertController(title: "Alerta", message: "Este tipo ya fue craedo",preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    alerta.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+
+                   self.presentViewController(alerta, animated: true, completion: nil)
+                }else{
+                
+                    //creamos la cuenta
+                    let nuevaCuentaEntitidad = NSEntityDescription.insertNewObjectForEntityForName("Cuenta", inManagedObjectContext: self.contexto!)
+                    nuevaCuentaEntitidad.setValue(txtTipo.text, forKey: "nombre")
+                    nuevaCuentaEntitidad.setValue(crearSubcuenta(), forKey: "tiene")
+                
+                    
+                    do{
+                        try self.contexto?.save()
+                    }catch{
+                    }
+                
+                }
+                
+            }catch{
+            
+            }
+            
+            
+        }
+        
+        print(txtNombre.text)
+        print(txtTipo.text)
+        print(txtMoneda.text)
+        print(txtSaldo.text)
+        print(txtFecha.text)
+        print(swIncluir.on)
+    
+    
+    }
 
     /*
     // MARK: - Navigation
