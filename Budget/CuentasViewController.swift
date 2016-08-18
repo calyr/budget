@@ -137,6 +137,7 @@ class CuentasViewController: UIViewController {
                     
                     do{
                         try self.contexto?.save()
+                        self.navigationController?.popViewControllerAnimated(true)
                     }catch{
                     
                     }
@@ -153,6 +154,7 @@ class CuentasViewController: UIViewController {
                     
                     do{
                         try self.contexto?.save()
+                        self.navigationController?.popViewControllerAnimated(true)
                     }catch{
                     }
                 

@@ -47,7 +47,7 @@ class GastosTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewWillAppear(animated: Bool) {
         cargarDatos()
-        //self.tableViewCuentas.reloadData()
+        self.tableViewGastos.reloadData()
     }
 
     
@@ -84,16 +84,13 @@ class GastosTableViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCellWithIdentifier("celdagasto", forIndexPath: indexPath) as! GastosTableViewCell
         print( indexPath.row )
         
-        cell.lbNombre.text? = menuData[indexPath.row]
-        cell.lbTotal.text? = menuDataTotal[indexPath.row]
+        cell.lbNombre.text? = "Bs. \(menuData[indexPath.row])"
+        cell.lbTotal.text? = "Bs. \(menuDataTotal[indexPath.row])"
         
         return cell
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        print("INGRESO AL SEGUE")
-        print(segue.identifier)
-        print("**************")
         if (segue.identifier == "seguegasto") {
         
             let destino = segue.destinationViewController as! GastoDetalleTableViewController

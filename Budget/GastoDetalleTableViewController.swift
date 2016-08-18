@@ -20,6 +20,7 @@ class GastoDetalleTableViewController: UITableViewController {
         print("El nombre del gasto es \(nombreGasto)")
         super.viewDidLoad()
         self.contexto = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        cargarDatos()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -80,7 +81,7 @@ class GastoDetalleTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return dataName.count
+        return subcuentasList.count
     }
 
     
@@ -88,8 +89,7 @@ class GastoDetalleTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("celdadetallegasto", forIndexPath: indexPath) as! GastoDetalleTableViewCell
         
         cell.txtNombre.text = dataName[indexPath.row]
-        cell.txtTotal.text = dataValue[indexPath.row]
-
+        cell.txtTotal.text = "Bs. \(dataValue[indexPath.row])"
         // Configure the cell...
 
         return cell

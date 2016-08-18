@@ -19,7 +19,6 @@ class CuentaDetalleTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.contexto = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        print("El nombre del acuenta es\(nombreCuenta)")
         cargarDatos()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -90,8 +89,7 @@ class CuentaDetalleTableViewController: UITableViewController {
        // print(subcuenta.valueForKey("nombre"))
 
         cell.lbSubcuenta.text = dataName[indexPath.row]
-        cell.lbSaldo.text = dataValue[indexPath.row]
-        
+        cell.lbSaldo.text = "Bs. \(dataValue[indexPath.row])"
         // Configure the cell...
         
         return cell

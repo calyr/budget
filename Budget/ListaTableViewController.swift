@@ -87,7 +87,7 @@ class ListaTableViewController: UIViewController, UITableViewDelegate, UITableVi
         print( indexPath.row )
         
         cell.lbTitle.text? = menuData[indexPath.row]
-        cell.lbTotal.text? = menuDataTotal[indexPath.row]
+        cell.lbTotal.text? = "Bs. \(menuDataTotal[indexPath.row])"
                
         return cell
     }

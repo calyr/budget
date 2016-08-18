@@ -41,7 +41,7 @@ class GastoViewController: UIViewController {
         
     }
 
-    @IBAction func guardarGasto(sender: UIBarButtonItem) {
+    @IBAction func guardarGasto(sender: UIBarButtonItem){
         
         if (txtCategoria.text == "" || txtSubcategoria.text == "" ){
             let alert = UIAlertController(title: "Gastos", message: "El campo Categoria/Subcategoria no pueden estar vacios", preferredStyle: UIAlertControllerStyle.Alert)
@@ -92,6 +92,7 @@ class GastoViewController: UIViewController {
                     
                     do{
                         try self.contexto?.save()
+                        self.navigationController?.popViewControllerAnimated(true)
                     }catch{
                         
                     }
@@ -108,6 +109,7 @@ class GastoViewController: UIViewController {
                     
                     do{
                         try self.contexto?.save()
+                        self.navigationController?.popViewControllerAnimated(true)
                     }catch{
                     }
                     
