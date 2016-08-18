@@ -80,11 +80,14 @@ class GastoViewController: UIViewController {
                     nuevaSubgastoEntidad.setValue(date, forKey: "fecha")
                     nuevaSubgastoEntidad.setValue(txtDescripcion.text, forKey: "descripcion")
                     
-                    let saldoTotalCuenta = cuentaActual.valueForKey("total") as! Double
+                    let saldoTotalCuenta = cuentaActual.valueForKey("total") as? Double
+                    print("Verificando el valor")
+                    print(saldoTotalCuenta)
+                    
                     let saldoTotalSubcuenta = Double(txtCantidad.text!)
                     
                     
-                    let tot = saldoTotalSubcuenta! + saldoTotalCuenta
+                    let tot = saldoTotalSubcuenta! + saldoTotalCuenta!
                     
                     cuentaActual.setValue(tot, forKey: "total")
                     
@@ -103,7 +106,7 @@ class GastoViewController: UIViewController {
                     //Creamos el Gasto
                     let nuevaGastoEntitidad = NSEntityDescription.insertNewObjectForEntityForName("Gasto", inManagedObjectContext: self.contexto!)
                     nuevaGastoEntitidad.setValue(txtSubcategoria.text , forKey: "nombre")
-                    nuevaGastoEntitidad.setValue(getCantidad(txtCantidad.text!), forKey: "total")
+                    nuevaGastoEntitidad.setValue(Double(txtCantidad.text!), forKey: "total")
                     nuevaGastoEntitidad.setValue(crearSubgasto(), forKey: "tiene")
                     
                     
@@ -131,15 +134,10 @@ class GastoViewController: UIViewController {
         
         let nuevaSubgastoEntidad = NSEntityDescription.insertNewObjectForEntityForName("Subgasto", inManagedObjectContext: self.contexto!)
         
-        let someString = txtCantidad.text
-        if let number = Int(someString!) {
-            let myNumber = NSNumber(integer:number)
-            nuevaSubgastoEntidad.setValue(myNumber, forKey: "cantidad")
+        let someString = Double(txtCantidad.text!)
+            nuevaSubgastoEntidad.setValue(someString, forKey: "cantidad")
             
-            print(myNumber)
-        } else {
-            print("'\(someString)' did not convert to an Int")
-        }
+        
         
         let dateString = txtFecha.text // change to your date format
         

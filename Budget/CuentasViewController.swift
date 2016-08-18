@@ -37,15 +37,8 @@ class CuentasViewController: UIViewController {
         
         let nuevaSubcuentaEntidad = NSEntityDescription.insertNewObjectForEntityForName("Subcuenta", inManagedObjectContext: self.contexto!)
         
-        let someString = txtSaldo.text
-        if let number = Int(someString!) {
-            let myNumber = NSNumber(integer:number)
-            nuevaSubcuentaEntidad.setValue(myNumber, forKey: "saldo")
-
-            print(myNumber)
-        } else {
-            print("'\(someString)' did not convert to an Int")
-        }
+        let someString = Double(txtSaldo.text!)
+                   nuevaSubcuentaEntidad.setValue(someString, forKey: "saldo")
         
         let dateString = txtFecha.text // change to your date format
         
@@ -110,7 +103,7 @@ class CuentasViewController: UIViewController {
                     let nuevaSubcuentaEntidad = NSEntityDescription.insertNewObjectForEntityForName("Subcuenta", inManagedObjectContext: self.contexto!)
                     
                     
-                    nuevaSubcuentaEntidad.setValue(getSaldo(txtSaldo.text!), forKey: "saldo")
+                    nuevaSubcuentaEntidad.setValue(Double(txtSaldo.text!), forKey: "saldo")
 
                     
                     let dateString = txtFecha.text // change to your date format
@@ -148,7 +141,7 @@ class CuentasViewController: UIViewController {
                     //creamos la cuenta
                     let nuevaCuentaEntitidad = NSEntityDescription.insertNewObjectForEntityForName("Cuenta", inManagedObjectContext: self.contexto!)
                     nuevaCuentaEntitidad.setValue(txtTipo.text, forKey: "nombre")
-                    nuevaCuentaEntitidad.setValue(getSaldo(txtSaldo.text!), forKey: "total")
+                    nuevaCuentaEntitidad.setValue(Double(txtSaldo.text!), forKey: "total")
                     nuevaCuentaEntitidad.setValue(crearSubcuenta(), forKey: "tiene")
                 
                     

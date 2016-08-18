@@ -84,7 +84,7 @@ class GastosTableViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCellWithIdentifier("celdagasto", forIndexPath: indexPath) as! GastosTableViewCell
         print( indexPath.row )
         
-        cell.lbNombre.text? = "Bs. \(menuData[indexPath.row])"
+        cell.lbNombre.text? = menuData[indexPath.row]
         cell.lbTotal.text? = "Bs. \(menuDataTotal[indexPath.row])"
         
         return cell
